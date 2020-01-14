@@ -6,6 +6,7 @@ export default function WeatherForecastDisplay(props) {
   return (
     <div style={{ display: "flex", textAlign: "center" }}>
       {props.weatherData.map((weather, index) => {
+        
         const utcString = GetUTCDateString(weather.dt);
         const dayText = utcString.slice(0, 3);
 
