@@ -15,6 +15,7 @@ export default function WeatherForecastDisplay(props) {
 
         const [weatherInfo] = weather.weather;
         return (
+          props.isFetching? null :
           <WeatherCard
             key={index}
             day={dayText}

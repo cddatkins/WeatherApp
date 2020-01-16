@@ -1,23 +1,23 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {InputGroup, Button, FormControl} from 'react-bootstrap';
 
-export default function WeatherInput() {
-    const [input, setInput] = useState("");
+export default function WeatherInput(props) {
 
-    function handleOnChange(e)
-    {
-        setInput(e.value);
+    const weatherInputField = React.createRef();
+    function handleButtonClick(e) {
+        const {value} =  weatherInputField.current;
+        console.log(value);
+        props.onClick(value);
     }
 
     return (
         <div>
             <InputGroup className="mb-3">
-                <InputGroup.Prepend>
-                <Button variant="outline-secondary">Button</Button>
-                </InputGroup.Prepend>
-                <FormControl aria-describedby="basic-addon1" />
+                <FormControl placeholder="Enter a City or ZipCode" ref={weatherInputField} />
+                <InputGroup.Append>
+                <Button variant="outline-secondary" onClick={handleButtonClick}>Search</Button>
+                </InputGroup.Append>
             </InputGroup>
         </div>
-        
     );
 }

@@ -8,4 +8,9 @@ function GetUTCDateString(date) {
   return dateObj.toUTCString();
 }
 
-export { ConvertKToF, GetUTCDateString };
+function IsUSZipCode(str) {
+  const regexp = /^[0-9]{5}(?:-[0-9]{4})?$/;
+  return regexp.test(str);
+}
+
+export { ConvertKToF, GetUTCDateString, IsUSZipCode };
